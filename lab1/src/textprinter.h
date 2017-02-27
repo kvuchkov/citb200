@@ -5,6 +5,8 @@
 #include "invoice.h"
 
 class TextPrinter {
+public:
+    void print(std::ostream &out, Invoice &invoice);
 };
 
 
