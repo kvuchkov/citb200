@@ -1,9 +1,9 @@
 #include "invoice.h"
 
-void Invoice::add(Product &product, int qty) {
+void Invoice::add(Product *product, int qty) {
     bool found = false;
     for (int i = 0; i < items.size(); i++) {
-        if (items[i].getProduct().getName() == product.getName()) {
+        if (items[i].getProduct().getName() == product->getName()) {
             found = true;
             items[i].add(qty);
             break;

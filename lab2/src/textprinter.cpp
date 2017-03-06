@@ -56,7 +56,6 @@ void TextPrinter::print(std::ostream &out, Invoice &invoice) {
 
     for (int i = 0; i < invoice.count(); i++) {
         int c = 0;
-        Product product = invoice.productAt(i);
         out << '|';
         for (int colIdx = 0; colIdx < columns.size(); colIdx++) {
             out << setw(columns[colIdx]);
@@ -70,10 +69,10 @@ void TextPrinter::print(std::ostream &out, Invoice &invoice) {
                     out << invoice.quantityAt(i);
                     break;
                 case 1:
-                    out << product.getName();
+                    out << invoice.productAt(i).getName();
                     break;
                 case 2:
-                    out << product.getPrice();
+                    out << invoice.productAt(i).getPrice();
                     break;
                 case 3:
                     out << invoice.totalAt(i);
