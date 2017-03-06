@@ -4,7 +4,7 @@
 Item::Item(const Product &product, int quantity) : product(product), quantity(quantity) {}
 
 Item::Item(const Item &item) : Item(item.product, item.quantity) {
-    std::cout << " -- CopyProduct " << item.product.getName() << std::endl;
+    std::cout << " -- CopyItem " << item.product.getName() << std::endl;
 }
 
 const Product &Item::getProduct() const {
