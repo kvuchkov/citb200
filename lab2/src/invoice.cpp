@@ -1,5 +1,11 @@
 #include "invoice.h"
 
+Invoice::~Invoice() {
+    for(int i=0; i<items.size(); i++) {
+        delete items[i];
+    }
+}
+
 void Invoice::add(Product *product, int qty) {
     bool found = false;
     for (int i = 0; i < items.size(); i++) {

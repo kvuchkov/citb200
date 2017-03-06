@@ -10,6 +10,8 @@ using std::vector;
 
 class Invoice {
 public:
+    ~Invoice();
+
     void add(Product *product, int qty);
 
     int count() const;
@@ -27,7 +29,7 @@ public:
     double total() const;
 
 private:
-    vector<Item*> items;
+    vector<Item *> items;
 };
 
 

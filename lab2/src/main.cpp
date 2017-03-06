@@ -14,5 +14,9 @@ int main() {
 
     TextPrinter printer;
     printer.print(std::cout, invoice);
+
+    delete superMob;
+    delete teaCup;
+    delete redWineGlass;
     return 0;
 }
