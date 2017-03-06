@@ -27,7 +27,7 @@ public:
     double total() const;
 
 private:
-    vector<Item> items;
+    vector<Item*> items;
 };
 
 
