@@ -1,6 +1,7 @@
 #include <ostream>
 #include <iomanip>
 #include "textprinter.h"
+#include "discountedInvoice.h"
 
 using std::vector;
 using std::left;

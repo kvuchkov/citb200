@@ -3,6 +3,7 @@
 
 
 #include "invoice.h"
+#include "discountedInvoice.h"
 
 class TextPrinter {
 public:

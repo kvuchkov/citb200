@@ -22,7 +22,7 @@ public:
 
     double totalAt(int idx) const;
 
-    double subtotal() const;
+    virtual double subtotal() const;
 
     double taxes() const;
 

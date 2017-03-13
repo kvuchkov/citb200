@@ -3,3 +3,9 @@
 //
 
 #include "discount.h"
+
+Discount::Discount(double percentage) : percentage(percentage) {}
+
+double Discount::apply(double amount) {
+    return amount - amount * percentage;
+}

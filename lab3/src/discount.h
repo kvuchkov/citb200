@@ -7,7 +7,11 @@
 
 
 class Discount {
-
+public:
+    Discount(double percentage);
+    double apply(double amount);
+private:
+    double percentage;
 };
 
 
