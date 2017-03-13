@@ -2,10 +2,10 @@
 #include "invoice.h"
 #include "textprinter.h"
 #include "discount.h"
-#include "threeItemsDiscount.h"
+#include "discountedInvoice.h"
 
 int main() {
-    Invoice invoice;
+    DiscountedInvoice invoice;
     Product *superMob = new Product("Super Mob", 12.90);
     Product *teaCup = new Product("Tea Cup", 5.30);
     Product *redWineGlass = new Product("Red Wine Glass", 8.60);
@@ -14,14 +14,14 @@ int main() {
     invoice.add(teaCup, 12);
     invoice.add(redWineGlass, 8);
 
-    Discount discount = new Discount(0.1); //10% discount
-    invoice.add(discount);
+    Discount *discount = new Discount(0.1); //10% discount
+    invoice.addDiscount(discount);
 
     TextPrinter printer;
     printer.print(std::cout, invoice);
 
-    ThreeItemsDiscount threeItemsDiscount = new ThreeItemsDiscount(0.05); //5% discount on items with quantity more then 3
-    invoice.add(threeItemsDiscount);
+    Discount *discount2 = new Discount(0.05); //5% discount
+    invoice.addDiscount(discount2);
 
     printer.print(std::cout, invoice);
 
