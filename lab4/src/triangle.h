@@ -8,5 +8,18 @@
 
 #include "shape.h"
 
+class Triangle : public Shape {
+public:
+    ~Triangle();
+
+    double perimeter() const;
+
+    double area() const;
+
+    istream &read(istream &in);
+private:
+    double a, b, c;
+};
+
 
 #endif //LAB4_TRIANGLE_H
