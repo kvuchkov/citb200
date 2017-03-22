@@ -18,17 +18,22 @@ int main() {
 
     vector<Shape *> shapes;
     ifstream inFile("inputs/shapes.txt");
+
+    if (inFile.fail()) {
+        return -1;
+    }
+
     char type;
     while (inFile >> type) {
         Shape *shape = createShape(type);
-        inFile >> shape;
+        shape->read(inFile);
         shapes.push_back(shape);
     }
 
     int number;
     char cmd;
     while (cin >> number && number > 0) {
-        cin  >> cmd;
+        cin >> cmd;
         Shape *shape = shapes[number - 1];
         if (cmd == 'a')
             cout << shape->area() << endl;
