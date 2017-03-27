@@ -10,7 +10,12 @@ using std::istream;
 int main(int argc, char * argv[]) {
     Invoice invoice;
 
-    std::ifstream infile("data/products.dat");
+    char * datfile_path = argv[1];
+    char * dbfile_path = argv[2];
+
+    //part 1 - dat
+
+    std::ifstream infile(datfile_path);
     if(infile.fail())
         return -1;
 
@@ -25,8 +30,13 @@ int main(int argc, char * argv[]) {
     TextPrinter printer;
     printer.print(std::cout, invoice);
 
+    for(int i=0; i<products.size(); i++) {
+        delete products[i];
+    }
 
-    ProductDb db("data/products2.db");
+    //part 2 - db
+
+    ProductDb db(dbfile_path);
     std::cout <<  db.count() << " products in database." << std::endl;
 
     Invoice invoice2;
@@ -36,6 +46,8 @@ int main(int argc, char * argv[]) {
 
     printer.print(std::cout, invoice2);
 
+    //part 3 - update
+
     Product * product2 = db.getAt(1);
     product2->setPrice(15.60);
     db.save(product2);
@@ -43,7 +55,7 @@ int main(int argc, char * argv[]) {
     Product *other = new Product("Dummy", 10);
     db.save(other); // should ignore it
 
-    ProductDb db2("data/products2.db");
+    ProductDb db2(dbfile_path);
 
     std::cout <<  db2.count() << " products in database." << std::endl;
 

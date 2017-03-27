@@ -10,6 +10,8 @@
 #include "product.h"
 
 class ProductReader {
+public:
+    std::vector<Product *> read(std::istream &in);
 };
 
 
