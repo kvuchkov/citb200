@@ -1,14 +1,14 @@
 #include "product.h"
-Product::Product(string name, double price)
+Product::Product(string n, double p)
 {
-	this->name = name;
-	this->price = price;
+	name = n;
+	price = p;
 }
 string Product::getName()
 {
-	return this->name;
+	return name;
 }
 double Product::getPrice()
 {
-	return this->price;
+	return price;
 }

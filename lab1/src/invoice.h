@@ -14,7 +14,7 @@ public:
 	void add(Product product, int quantity);
 	vector<Product> getProducts();
 private:
-	vector<Product> products;
+	vector<Item> items;
 };
 
 
