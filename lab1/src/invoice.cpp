@@ -12,3 +12,7 @@ vector<Product> Invoice::getProducts() {
 	}
 	return products;
 }
+
+vector<Item> Invoice::getItems() {
+	return items;
+}
