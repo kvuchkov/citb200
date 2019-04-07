@@ -35,3 +35,8 @@ double Invoice::computeSubtotal()
 	}
 	return sum;
 }
+
+double Invoice::computeTax()
+{
+	return 0.1 * computeSubtotal();
+}
