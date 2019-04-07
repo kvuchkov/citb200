@@ -25,3 +25,13 @@ double Invoice::computeItemTotal(Item item)
 {
 	return item.getQuantity() * item.getProduct().getPrice();
 }
+
+double Invoice::computeSubtotal()
+{
+	double sum = 0;
+	for (auto item : items)
+	{
+		sum += computeItemTotal(item);
+	}
+	return sum;
+}
