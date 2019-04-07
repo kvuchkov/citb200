@@ -8,8 +8,10 @@
 
 using std::vector;
 
-class Invoice {
 
+class Invoice {
+public:
+	void add(Product product, int quantity);
 };
 
 
