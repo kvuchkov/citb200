@@ -6,11 +6,11 @@
 
 class Item {
 public:
-	Item(const Product &p, int qty);
+	Item(const Product *p, int qty);
 	const Product & getProduct() const;
 	const int getQuantity() const;
 private:
-	Product product;
+	const Product *product;
 	int quantity;
 };
 

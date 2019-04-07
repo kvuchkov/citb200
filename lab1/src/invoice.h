@@ -11,7 +11,7 @@ using std::vector;
 
 class Invoice {
 public:
-	void add(const Product &product, int quantity);
+	void add(const Product *product, int quantity);
 	vector<Product> getProducts() const;
 	const vector<Item> & getItems() const;
 	double computeItemTotal(const Item & item) const;
