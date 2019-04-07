@@ -14,6 +14,7 @@ public:
 	void add(Product product, int quantity);
 	vector<Product> getProducts();
 	vector<Item> getItems();
+	double computeItemTotal(Item item);
 private:
 	vector<Item> items;
 };
