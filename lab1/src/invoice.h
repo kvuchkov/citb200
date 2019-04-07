@@ -11,10 +11,10 @@ using std::vector;
 
 class Invoice {
 public:
-	void add(Product product, int quantity);
+	void add(const Product &product, int quantity);
 	vector<Product> getProducts() const;
-	vector<Item> getItems() const;
-	double computeItemTotal(Item item) const;
+	const vector<Item> & getItems() const;
+	double computeItemTotal(const Item & item) const;
 	double computeSubtotal() const;
 	double computeTax() const;
 private:

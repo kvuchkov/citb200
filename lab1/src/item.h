@@ -6,9 +6,9 @@
 
 class Item {
 public:
-	Item(Product p, int qty);
-	Product getProduct();
-	int getQuantity();
+	Item(const Product &p, int qty);
+	const Product & getProduct() const;
+	const int getQuantity() const;
 private:
 	Product product;
 	int quantity;

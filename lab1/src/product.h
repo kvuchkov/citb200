@@ -5,15 +5,17 @@
 
 using std::string;
 
-class Product {
-public:
+class Product
+{
+  public:
+	Product(const Product &other);
 	Product(string name, double price);
-	string getName();
-	double getPrice();
-private:
+	const string & getName() const;
+	const double getPrice() const;
+
+  private:
 	string name;
 	double price;
 };
-
 
 #endif //LAB1_PRODUCT_H

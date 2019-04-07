@@ -1,14 +1,19 @@
 #include "product.h"
+#include <iostream>
+
 Product::Product(string n, double p)
 {
 	name = n;
 	price = p;
 }
-string Product::getName()
+const string & Product::getName() const
 {
 	return name;
 }
-double Product::getPrice()
+const double Product::getPrice() const
 {
 	return price;
+}
+Product::Product(const Product &other): name(other.name), price(other.price) {
+	std::cout << "!!!COPY PRODUCT!!!" << std::endl;
 }
