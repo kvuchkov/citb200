@@ -3,3 +3,7 @@
 //
 
 #include "discount.h"
+
+Discount::Discount(double percentage) {
+	
+}

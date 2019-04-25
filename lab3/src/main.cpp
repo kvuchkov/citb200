@@ -14,7 +14,7 @@ int main() {
     invoice.add(teaCup, 12);
     invoice.add(redWineGlass, 8);
 
-    // Discount *discount = new Discount(0.1); //10% discount
+    Discount *discount = new Discount(0.1); //10% discount
     // invoice.addDiscount(discount);
 
     TextPrinter printer;

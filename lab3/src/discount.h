@@ -7,7 +7,8 @@
 
 
 class Discount {
-
+public:
+	Discount(double percentage);
 };
 
 
