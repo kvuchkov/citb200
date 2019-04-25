@@ -5,11 +5,14 @@
 #ifndef LAB3_DISCOUNT_H
 #define LAB3_DISCOUNT_H
 
-
-class Discount {
-public:
+class Discount
+{
+  public:
 	Discount(double percentage);
-};
+	virtual double apply(double amount) const;
 
+  private:
+	double percentage;
+};
 
 #endif //LAB3_DISCOUNT_H

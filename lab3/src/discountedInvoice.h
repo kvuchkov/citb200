@@ -12,6 +12,8 @@ class DiscountedInvoice : public Invoice {
 public:
 	void addDiscount(const Discount* discount);
 	virtual double subtotal() const;
+private:
+	vector<const Discount*> discounts;
 };
 
 

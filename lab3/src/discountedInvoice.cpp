@@ -5,10 +5,13 @@
 #include "discountedInvoice.h"
 
 void DiscountedInvoice::addDiscount(const Discount* discount) {
-	
+	discounts.push_back(discount);
 }
 
 double DiscountedInvoice::subtotal() const {
 	double subtotal = Invoice::subtotal();
+	for(auto discount : discounts) {
+		subtotal = discount->apply(subtotal);
+	}
 	return subtotal;
 }
