@@ -3,3 +3,7 @@
 //
 
 #include "discountedInvoice.h"
+
+void DiscountedInvoice::addDiscount(const Discount *discount) {
+	
+}
