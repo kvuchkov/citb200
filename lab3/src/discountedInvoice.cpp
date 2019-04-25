@@ -7,3 +7,8 @@
 void DiscountedInvoice::addDiscount(const Discount* discount) {
 	
 }
+
+double DiscountedInvoice::subtotal() const {
+	double subtotal = Invoice::subtotal();
+	return subtotal;
+}
