@@ -9,6 +9,7 @@
 class Discount {
 public:
 	Discount(double percentage);
+	virtual double apply(double amount) const;
 private:
 	double percentage;
 };

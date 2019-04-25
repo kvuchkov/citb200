@@ -6,3 +6,7 @@
 Discount::Discount(double percentage) : percentage(percentage)
 {
 }
+
+double Discount::apply(double amount) const {
+	return amount * (1 - percentage);
+}
