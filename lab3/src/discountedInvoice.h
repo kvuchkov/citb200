@@ -5,8 +5,9 @@
 #ifndef LAB3_DISCOUNTEDINVOICE_H
 #define LAB3_DISCOUNTEDINVOICE_H
 
+#include "invoice.h"
 
-class DiscountedInvoice {
+class DiscountedInvoice : public Invoice {
 
 };
 
