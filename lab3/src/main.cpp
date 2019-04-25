@@ -15,13 +15,13 @@ int main() {
     invoice.add(redWineGlass, 8);
 
     Discount *discount = new Discount(0.1); //10% discount
-    // invoice.addDiscount(discount);
+    invoice.addDiscount(discount);
 
     TextPrinter printer;
     printer.print(std::cout, invoice);
 
-    // Discount *discount2 = new Discount(0.05); //5% discount
-    // invoice.addDiscount(discount2);
+    Discount *discount2 = new Discount(0.05); //5% discount
+    invoice.addDiscount(discount2);
 
     printer.print(std::cout, invoice);
 

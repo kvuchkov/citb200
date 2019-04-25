@@ -6,9 +6,11 @@
 #define LAB3_DISCOUNTEDINVOICE_H
 
 #include "invoice.h"
+#include "discount.h"
 
 class DiscountedInvoice : public Invoice {
-
+public:
+	void addDiscount(const Discount* discount);
 };
 
 
