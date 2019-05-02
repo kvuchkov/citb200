@@ -8,4 +8,8 @@
 
 #include <iostream>
 
+class Shape {
+
+};
+
 #endif //LAB4_SHAPE_H
