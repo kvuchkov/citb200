@@ -8,18 +8,20 @@
 
 Shape *createShape(char type);
 
-using std::vector;
-using std::ifstream;
-using std::cout;
-using std::cin;
-using std::endl;
 using std::cerr;
+using std::cin;
+using std::cout;
+using std::endl;
+using std::ifstream;
 using std::string;
+using std::vector;
 
 int main(int argc, char const *argv[])
 {
-    if (argc != 2) {
-        cerr << "Invalid usage! Expected:" << endl << "./lab4 /path/to/input" << endl;
+    if (argc != 2)
+    {
+        cerr << "Invalid usage! Expected:" << endl
+             << "./lab4 /path/to/input" << endl;
         return -1;
     }
 
@@ -29,26 +31,31 @@ int main(int argc, char const *argv[])
 
     ifstream inputs(inputsPath);
 
-    vector<Shape*> shapes;
+    vector<Shape *> shapes;
 
     char type;
-    while (inputs >> type) {
+    while (inputs >> type)
+    {
         int radius;
+        int a, b, c;
         switch (type)
         {
-            case 'c':
-                inputs >> radius;
-                shapes.push_back(new Circle(radius));
-                break;
-            default:
-                break;
+        case 'c':
+            inputs >> radius;
+            shapes.push_back(new Circle(radius));
+            break;
+        case 'r':
+            inputs >> a >> b;
+            shapes.push_back(new Rectangle(a, b));
+        default:
+            break;
         }
     }
 
-    for (auto shape : shapes) {
+    for (auto shape : shapes)
+    {
         cout << shape->area() << endl;
     }
 
     return 0;
 }
-
