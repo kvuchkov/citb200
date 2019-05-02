@@ -29,11 +29,19 @@ int main(int argc, char const *argv[])
 
     ifstream inputs(inputsPath);
 
-    string word;
-    while (inputs >> word) {
-        cout << word << " ";
+    char type;
+    while (inputs >> type) {
+        int radius;
+        switch (type)
+        {
+            case 'c':
+                inputs >> radius;
+                new Circle(radius);
+                break;
+            default:
+                break;
+        }
     }
-    cout << endl;
 
     return 0;
 }
