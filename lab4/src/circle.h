@@ -8,9 +8,10 @@
 
 #include "shape.h"
 
-class Circle {
+class Circle : public Shape {
 public:
 	Circle(int radius);
+	virtual double area();
 private:
 	int radius;
 };

@@ -5,3 +5,7 @@
 #include "circle.h"
 Circle::Circle(int radius) : radius(radius) {
 }
+
+double Circle::area() {
+	return radius;
+}

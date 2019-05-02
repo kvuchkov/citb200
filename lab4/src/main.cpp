@@ -31,19 +31,24 @@ int main(int argc, char const *argv[])
     ifstream shapesData(shapesDataFile);
 
     char type;
+    vector<Shape*> shapes;
     while(shapesData >> type) {
         int r;
         switch (type)
         {
             case 'c':
                 shapesData >> r;
-                new Circle(r);
+                shapes.push_back(new Circle(r));
                 break;
             default:
                 break;
         }
+        break;
     }
 
+    for(auto shape : shapes) {
+        cout << shape->area() << endl;
+    }
     return 0;
 }
 
