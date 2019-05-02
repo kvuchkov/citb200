@@ -3,6 +3,11 @@
 //
 
 #include "circle.h"
+#include <cmath>
 
 Circle::Circle(int radius) : radius(radius) {
+}
+
+double Circle::area() {
+	return radius * radius * M_PI;
 }

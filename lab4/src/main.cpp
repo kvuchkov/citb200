@@ -45,6 +45,10 @@ int main(int argc, char const *argv[])
         }
     }
 
+    for (auto shape : shapes) {
+        cout << shape->area() << endl;
+    }
+
     return 0;
 }
 

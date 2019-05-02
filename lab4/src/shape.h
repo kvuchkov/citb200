@@ -9,7 +9,8 @@
 #include <iostream>
 
 class Shape {
-
+public:
+	virtual double area() =0;
 };
 
 #endif //LAB4_SHAPE_H
