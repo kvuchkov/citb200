@@ -8,5 +8,11 @@
 
 #include "shape.h"
 
+class Circle {
+public:
+	Circle(int radius);
+private:
+	int radius;
+};
 
 #endif //LAB4_CIRCLE_H
