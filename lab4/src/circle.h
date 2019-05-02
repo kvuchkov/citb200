@@ -7,12 +7,12 @@
 
 #include "shape.h"
 
-class Circle
+class Circle : public Shape
 {
-  public:
+public:
 	Circle(int radius);
 
-  private:
+private:
 	int radius;
 };
 

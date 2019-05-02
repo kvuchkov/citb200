@@ -29,6 +29,8 @@ int main(int argc, char const *argv[])
 
     ifstream inputs(inputsPath);
 
+    vector<Shape*> shapes;
+
     char type;
     while (inputs >> type) {
         int radius;
@@ -36,7 +38,7 @@ int main(int argc, char const *argv[])
         {
             case 'c':
                 inputs >> radius;
-                new Circle(radius);
+                shapes.push_back(new Circle(radius));
                 break;
             default:
                 break;
