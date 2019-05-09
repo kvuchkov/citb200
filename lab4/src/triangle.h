@@ -10,9 +10,11 @@
 class Triangle : public Shape
 {
 public:
+	Triangle();
 	Triangle(int a, int b, int c);
 	virtual double area();
 	virtual double perimeter();
+	virtual bool read(std::istream &in);
 
 private:
 	int a, b, c;

@@ -10,9 +10,11 @@
 class Rectangle : public Shape
 {
 public:
+	Rectangle();
 	Rectangle(int a, int b);
 	virtual double area();
 	virtual double perimeter();
+	virtual bool read(std::istream &in);
 
 private:
 	int a, b;

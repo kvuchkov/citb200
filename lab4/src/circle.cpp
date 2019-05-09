@@ -5,6 +5,8 @@
 #include "circle.h"
 #include <cmath>
 
+Circle::Circle() : Circle(1) {}
+
 Circle::Circle(int radius) : radius(radius)
 {
 }

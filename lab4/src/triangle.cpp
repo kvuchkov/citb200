@@ -5,6 +5,10 @@
 #include "triangle.h"
 #include <cmath>
 
+Triangle::Triangle() : Triangle(1, 1, 1)
+{
+}
+
 Triangle::Triangle(int a, int b, int c) : a(a), b(b), c(c)
 {
 }

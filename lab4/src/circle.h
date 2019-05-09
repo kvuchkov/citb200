@@ -10,9 +10,11 @@
 class Circle : public Shape
 {
 public:
+	Circle();
 	Circle(int radius);
 	virtual double area();
 	virtual double perimeter();
+	virtual bool read(std::istream &in);
 
 private:
 	int radius;

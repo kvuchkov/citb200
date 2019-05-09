@@ -4,6 +4,8 @@
 
 #include "rectangle.h"
 
+Rectangle::Rectangle() : Rectangle(1, 1) {}
+
 Rectangle::Rectangle(int a, int b) : a(a), b(b)
 {
 }
