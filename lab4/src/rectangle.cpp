@@ -18,3 +18,15 @@ double Rectangle::perimeter()
 {
 	return 2 * a + 2 * b;
 }
+bool Rectangle::read(std::istream &in)
+{
+	int a, b;
+	if (in >> a >> b)
+	{
+		this->a = a;
+		this->b = b;
+		return true;
+	}
+	
+	return false;
+}
