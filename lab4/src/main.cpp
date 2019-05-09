@@ -37,7 +37,7 @@ int main(int argc, char const *argv[])
     {
         cerr << "t:" << type << endl;
         int r;
-        int a, b;
+        int a, b, c;
         switch (type)
         {
         case 'c':
@@ -47,6 +47,10 @@ int main(int argc, char const *argv[])
         case 'r':
             shapesData >> a >> b;
             shapes.push_back(new Rectangle(a, b));
+            break;
+        case 't':
+            shapesData >> a >> b >> c;
+            shapes.push_back(new Triangle(a, b, c));
             break;
         default:
             break;
