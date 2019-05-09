@@ -9,17 +9,18 @@
 
 Shape *createShape(char type);
 
-using std::vector;
-using std::ifstream;
-using std::cout;
 using std::cerr;
 using std::cin;
+using std::cout;
 using std::endl;
+using std::ifstream;
 using std::string;
+using std::vector;
 
 int main(int argc, char const *argv[])
 {
-    if (argc != 2) {
+    if (argc != 2)
+    {
         cerr << "Invalid use!" << endl;
         return -1;
     }
@@ -31,24 +32,30 @@ int main(int argc, char const *argv[])
     ifstream shapesData(shapesDataFile);
 
     char type;
-    vector<Shape*> shapes;
-    while(shapesData >> type) {
+    vector<Shape *> shapes;
+    while (shapesData >> type)
+    {
+        cerr << "t:" << type << endl;
         int r;
+        int a, b;
         switch (type)
         {
-            case 'c':
-                shapesData >> r;
-                shapes.push_back(new Circle(r));
-                break;
-            default:
-                break;
+        case 'c':
+            shapesData >> r;
+            shapes.push_back(new Circle(r));
+            break;
+        case 'r':
+            shapesData >> a >> b;
+            shapes.push_back(new Rectangle(a, b));
+            break;
+        default:
+            break;
         }
-        break;
     }
 
-    for(auto shape : shapes) {
+    for (auto shape : shapes)
+    {
         cout << shape->area() << endl;
     }
     return 0;
 }
-
