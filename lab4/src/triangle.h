@@ -10,8 +10,10 @@
 class Triangle : public Shape
 {
 public:
+	Triangle();
 	Triangle(int a, int b, int c);
 	virtual double area();
+	virtual bool read(istream &in);
 private:
 	int a, b, c;
 };

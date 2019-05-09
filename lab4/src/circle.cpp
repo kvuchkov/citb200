@@ -3,9 +3,24 @@
 //
 
 #include "circle.h"
-Circle::Circle(int radius) : radius(radius) {
+Circle::Circle() : Circle(1) {}
+Circle::Circle(int radius) : radius(radius)
+{
 }
 
-double Circle::area() {
+double Circle::area()
+{
 	return radius;
+}
+
+bool Circle::read(istream &in)
+{
+	int r;
+	if (in >> r)
+	{
+		radius = r;
+		return true;
+	}
+	
+	return false;
 }

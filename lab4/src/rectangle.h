@@ -10,8 +10,11 @@
 class Rectangle : public Shape
 {
 public:
+	Rectangle();
 	Rectangle(int a, int b);
 	virtual double area();
+	virtual bool read(istream &in);
+
 private:
 	int a, b;
 };

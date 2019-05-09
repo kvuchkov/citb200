@@ -36,24 +36,10 @@ int main(int argc, char const *argv[])
     while (shapesData >> type)
     {
         cerr << "t:" << type << endl;
-        int r;
-        int a, b, c;
-        switch (type)
+        auto shape = createShape(type);
+        if (shape && shape->read(shapesData))
         {
-        case 'c':
-            shapesData >> r;
-            shapes.push_back(new Circle(r));
-            break;
-        case 'r':
-            shapesData >> a >> b;
-            shapes.push_back(new Rectangle(a, b));
-            break;
-        case 't':
-            shapesData >> a >> b >> c;
-            shapes.push_back(new Triangle(a, b, c));
-            break;
-        default:
-            break;
+            shapes.push_back(shape);
         }
     }
 
@@ -62,4 +48,19 @@ int main(int argc, char const *argv[])
         cout << shape->area() << endl;
     }
     return 0;
+}
+
+Shape *createShape(char type)
+{
+    switch (type)
+    {
+    case 'c':
+        return new Circle();
+    case 'r':
+        return new Rectangle();
+    case 't':
+        return new Triangle();
+    default:
+        return 0;
+    }
 }

@@ -8,9 +8,12 @@
 
 #include <iostream>
 
+using std::istream;
+
 class Shape {
 public:
 	virtual double area() =0;
+	virtual bool read(istream &in) =0;
 };
 
 #endif //LAB4_SHAPE_H
