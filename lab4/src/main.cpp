@@ -37,7 +37,7 @@ int main(int argc, char const *argv[])
     while (inputs >> type)
     {
         auto shape = createShape(type);
-        if (shape->read(inputs))
+        if (shape && shape->read(inputs))
         {
             shapes.push_back(shape);
         }
