@@ -12,6 +12,7 @@ class Triangle : public Shape
 public:
 	Triangle(int a, int b, int c);
 	virtual double area();
+	virtual double perimeter();
 
 private:
 	int a, b, c;

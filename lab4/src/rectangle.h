@@ -9,11 +9,12 @@
 
 class Rectangle : public Shape
 {
-  public:
+public:
 	Rectangle(int a, int b);
 	virtual double area();
+	virtual double perimeter();
 
-  private:
+private:
 	int a, b;
 };
 

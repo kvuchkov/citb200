@@ -10,6 +10,11 @@ Triangle::Triangle(int a, int b, int c) : a(a), b(b), c(c)
 }
 double Triangle::area()
 {
-	double p = (a + b + c) / 2.0;
+	double p = perimeter() / 2.0;
 	return sqrt(p * (p - a) * (p - b) * (p - c));
+}
+
+double Triangle::perimeter()
+{
+	return a + b + c;
 }

@@ -60,7 +60,7 @@ int main(int argc, char const *argv[])
 
     for (auto shape : shapes)
     {
-        cout << shape->area() << endl;
+        cout << "S=" << shape->area() << "; P=" << shape->perimeter() << ";" << endl;
     }
 
     return 0;

@@ -12,6 +12,8 @@ class Circle : public Shape
 public:
 	Circle(int radius);
 	virtual double area();
+	virtual double perimeter();
+
 private:
 	int radius;
 };

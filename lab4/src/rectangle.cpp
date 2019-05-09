@@ -12,3 +12,7 @@ double Rectangle::area()
 {
 	return a * b;
 }
+double Rectangle::perimeter()
+{
+	return 2 * a + 2 * b;
+}
