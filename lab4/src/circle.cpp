@@ -20,3 +20,15 @@ double Circle::perimeter()
 {
 	return 2 * M_PI * radius;
 }
+
+bool Circle::read(std::istream &in)
+{
+	int r;
+	if (in >> r)
+	{
+		radius = r;
+		return true;
+	}
+
+	return false;
+}
