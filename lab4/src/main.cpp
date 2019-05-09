@@ -47,7 +47,13 @@ int main(int argc, char const *argv[])
         case 'r':
             inputs >> a >> b;
             shapes.push_back(new Rectangle(a, b));
+            break;
+        case 't':
+            inputs >> a >> b >> c;
+            shapes.push_back(new Triangle(a, b, c));
+            break;
         default:
+            cerr << "Unrecognized shape " << type << endl;
             break;
         }
     }
