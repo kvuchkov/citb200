@@ -36,25 +36,10 @@ int main(int argc, char const *argv[])
     char type;
     while (inputs >> type)
     {
-        int radius;
-        int a, b, c;
-        switch (type)
+        auto shape = createShape(type);
+        if (shape->read(inputs))
         {
-        case 'c':
-            inputs >> radius;
-            shapes.push_back(new Circle(radius));
-            break;
-        case 'r':
-            inputs >> a >> b;
-            shapes.push_back(new Rectangle(a, b));
-            break;
-        case 't':
-            inputs >> a >> b >> c;
-            shapes.push_back(new Triangle(a, b, c));
-            break;
-        default:
-            cerr << "Unrecognized shape " << type << endl;
-            break;
+            shapes.push_back(shape);
         }
     }
 
@@ -64,4 +49,19 @@ int main(int argc, char const *argv[])
     }
 
     return 0;
+}
+
+Shape *createShape(char type)
+{
+    switch (type)
+    {
+    case 'c':
+        return new Circle();
+    case 'r':
+        return new Rectangle();
+    case 't':
+        return new Triangle();
+    default:
+        return 0;
+    }
 }
