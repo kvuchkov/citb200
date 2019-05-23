@@ -5,6 +5,8 @@
 
 using namespace std;
 
+bool validateExpression(const string &expression);
+
 bool isOpeningBracket(char c);
 bool isClosingBracket(char c);
 bool matchBrackets(char openingBracket, char closingBracket);
@@ -14,29 +16,34 @@ const int BRACKET = 1;
 const int SQUARE_BRACKET = 2;
 int typeOfBracket(const char c);
 
+
 int main(int argc, char *argv[]) {
     string expression;
     while(getline(cin, expression)) {
         cerr << "Expression: " << expression << endl;
-        stack<char> openingBrackets;
-        for (char c : expression) {
-            if (isOpeningBracket(c)) {
-                openingBrackets.push(c);
-            } else if(isClosingBracket(c)) {
-                if (matchBrackets(openingBrackets.top(), c)) {
-                    openingBrackets.pop();
-                } else {
-                    break;
-                }
-            }
-        }
-        if (openingBrackets.empty()) {
+        if (validateExpression(expression)) {
             cout << "YES" << endl;
         } else {
             cout << "NO" << endl;
         }
     }
     return 0;
+}
+
+bool validateExpression(const string &expression) {
+    stack<char> openingBrackets;
+    for (char c : expression) {
+        if (isOpeningBracket(c)) {
+            openingBrackets.push(c);
+        } else if(isClosingBracket(c)) {
+            if (matchBrackets(openingBrackets.top(), c)) {
+                openingBrackets.pop();
+            } else {
+                break;
+            }
+        }
+    }
+    return openingBrackets.empty();
 }
 
 bool isOpeningBracket(char c) {
