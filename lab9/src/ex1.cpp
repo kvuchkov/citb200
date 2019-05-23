@@ -23,19 +23,19 @@ int main(int argc, char *argv[]) {
 }
 
 bool validateBrackets(string expression) {
-    stack<char> brackets;
+    stack<char> openingBrackets;
     for(char c : expression) {
         if(isOpeningBracket(c)) {
-            brackets.push(c);
+            openingBrackets.push(c);
         } else if(isClosingBracket(c)) {
-            if (matchBrackets(c, brackets.top())) {
-                brackets.pop();
+            if (matchBrackets(c, openingBrackets.top())) {
+                openingBrackets.pop();
             } else {
                 break;
             }
         }
     }
-    return brackets.empty();
+    return openingBrackets.empty();
 }
 
 bool isOpeningBracket(char c){
