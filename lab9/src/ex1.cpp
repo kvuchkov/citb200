@@ -12,7 +12,9 @@ private:
     bool isOpeningBracket(char c);
     bool isClosingBracket(char c);
     bool matchBrackets(char closingBracket, char openingBracket);
-    
+    void readOpeningBracket(char c);
+    bool closeBracket(char c);
+    stack<char> notClosedBrackets;
     string expression;
 };
 
@@ -35,19 +37,30 @@ BracketValidator::BracketValidator(const string &expression) : expression(expres
 }
 
 bool BracketValidator::isValid() {
-    stack<char> openingBrackets;
     for(char c : expression) {
         if(isOpeningBracket(c)) {
-            openingBrackets.push(c);
+            readOpeningBracket(c);
         } else if(isClosingBracket(c)) {
-            if (matchBrackets(c, openingBrackets.top())) {
-                openingBrackets.pop();
-            } else {
-                break;
+            bool closed = closeBracket(c);
+            if (!closed) {
+                return false;
             }
         }
     }
-    return openingBrackets.empty();
+    return notClosedBrackets.empty();
+}
+
+void BracketValidator::readOpeningBracket(char c) {
+    notClosedBrackets.push(c);
+}
+
+bool BracketValidator::closeBracket(char closingBracket) {
+    if (matchBrackets(closingBracket, notClosedBrackets.top())) {
+        notClosedBrackets.pop();
+        return true;
+    } else {
+        return false;
+    }
 }
 
 bool BracketValidator::isOpeningBracket(char c){
