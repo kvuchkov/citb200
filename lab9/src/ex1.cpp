@@ -4,16 +4,24 @@
 
 using namespace std;
 
-bool isOpeningBracket(char c);
-bool isClosingBracket(char c);
-bool matchBrackets(char closingBracket, char openingBracket);
-bool validateBrackets(string expression);
+class BracketValidator {
+public:
+    BracketValidator(const string &expression);
+    bool isValid();
+private:
+    bool isOpeningBracket(char c);
+    bool isClosingBracket(char c);
+    bool matchBrackets(char closingBracket, char openingBracket);
+    
+    string expression;
+};
 
 int main(int argc, char *argv[]) {
     string expression;
     while (getline(cin, expression)) {
         cerr << "Expression: " << expression << endl;
-        if (validateBrackets(expression)) {
+        BracketValidator validator(expression);
+        if (validator.isValid()) {
             cout << "YES" << endl;
         } else {
             cout << "NO" << endl;
@@ -22,7 +30,11 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 
-bool validateBrackets(string expression) {
+BracketValidator::BracketValidator(const string &expression) : expression(expression) {
+
+}
+
+bool BracketValidator::isValid() {
     stack<char> openingBrackets;
     for(char c : expression) {
         if(isOpeningBracket(c)) {
@@ -38,13 +50,13 @@ bool validateBrackets(string expression) {
     return openingBrackets.empty();
 }
 
-bool isOpeningBracket(char c){
+bool BracketValidator::isOpeningBracket(char c){
     return c == '(' || c == '[';
 }
-bool isClosingBracket(char c) {
+bool BracketValidator::isClosingBracket(char c) {
     return c == ')' || c == ']';
 }
-bool matchBrackets(char closingBracket, char openingBracket) {
+bool BracketValidator::matchBrackets(char closingBracket, char openingBracket) {
     if (openingBracket == '(') {
         return closingBracket == ')';
     } else if(openingBracket == '[') {
