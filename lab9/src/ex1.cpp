@@ -20,6 +20,9 @@ public:
     bool validate();
 private:
     string expression;
+    stack<char> openingBrackets;
+
+    bool closeBracket(char c);
 };
 
 int main(int argc, char *argv[]) {
@@ -64,17 +67,24 @@ bool matchBrackets(char openingBracket, char closingBracket) {
 
 BracketValidator::BracketValidator(const string &expression) : expression(expression) {}
 bool BracketValidator::validate() {
-    stack<char> openingBrackets;
     for (char c : expression) {
         if (isOpeningBracket(c)) {
             openingBrackets.push(c);
         } else if(isClosingBracket(c)) {
-            if (matchBrackets(openingBrackets.top(), c)) {
-                openingBrackets.pop();
-            } else {
-                break;
+            bool closed = closeBracket(c);
+            if (!closed) {
+                return false;
             }
         }
     }
     return openingBrackets.empty();
+}
+
+bool BracketValidator::closeBracket(char c) {
+    if (matchBrackets(openingBrackets.top(), c)) {
+        openingBrackets.pop();
+        return true;
+    } else {
+        return false;
+    }
 }
